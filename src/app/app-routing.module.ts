@@ -9,10 +9,13 @@ import { PersonDetailComponent } from './component/person-detail/person-detail.c
 import { PersonsComponent } from './component/persons/persons.component';
 import { RegisterComponent } from './component/register/register.component';
 import { SettingsComponent } from './component/settings/settings.component';
+import { AuthGuard } from './Guards/auth.guard';
+import { RegisterGuard } from './Guards/register.guard';
 
 const routes: Routes = [
   { path: '',
-    component: DashboardComponent 
+    component: DashboardComponent,
+    canActivate: [AuthGuard] 
   },
   {
     path: 'login',
@@ -20,27 +23,33 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [RegisterGuard]
   },
   {
     path: 'persons',
     component: PersonsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'person/add',
-    component: AddPersonComponent
+    component: AddPersonComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'person/edit/:id',
-    component: EditPersonComponent
+    component: EditPersonComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'person/:id',
-    component: PersonDetailComponent
+    component: PersonDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'settings',
-    component: SettingsComponent
+    component: SettingsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '*',

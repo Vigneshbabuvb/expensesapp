@@ -1,12 +1,13 @@
 <div class="row mb-4">
   <div class="col-6">
-    <h2>Persons <i class="fa fa-users"></i></h2>
+    <h2><i class="fa fa-users"></i> Persons</h2>
   </div>
-  <div class="col-6 d-flex align-items-center">
+  <div class="col-6 d-flex align-items-center justify-content-end">
     <h5>Total Owed: {{totalOwed | currency:"INR":"symbol"}}</h5>
   </div>
 </div>
-<table class="table table-striped">
+<hr>
+<table class="table table-striped" *ngIf="persons && persons.length > 0; else noPersonTemplate;">
   <thead>
     <th>Name</th>
     <th>Email</th>
@@ -21,3 +22,7 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #noPersonTemplate>
+  There are no persons added.
+</ng-template>

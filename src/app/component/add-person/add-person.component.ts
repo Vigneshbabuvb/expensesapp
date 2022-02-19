@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Person } from 'src/app/models/Person';
 import { PersonService } from 'src/app/services/person.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-add-person',
@@ -20,13 +21,15 @@ export class AddPersonComponent implements OnInit {
   };
 
   @ViewChild('personForm') personForm: any;
-  public disableBalanceOnAdd: boolean = true;
+  public disableBalanceOnAdd: boolean;
   constructor(
     private personService: PersonService,
-    private router: Router
+    private router: Router,
+    private settingsService: SettingsService
   ) { }
 
   ngOnInit(): void {
+    this.disableBalanceOnAdd = this.settingsService.getSettings().disableBalanceOnAdd;
   }
 
   onSubmit(formValue: NgForm) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Person } from 'src/app/models/Person';
 import { PersonService } from 'src/app/services/person.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-edit-person',
@@ -20,11 +21,12 @@ export class EditPersonComponent implements OnInit {
   public personID: string;
   public loaded = false;
 
-  disableBalanceOnAdd: boolean = false;
+  disableBalanceOnEdit: boolean;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private personService: PersonService
+    private personService: PersonService,
+    private settingsService: SettingsService
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class EditPersonComponent implements OnInit {
       this.person = person;
       this.loaded = true;
     });
+    this.disableBalanceOnEdit = this.settingsService.getSettings().disableBalanceOnEdit;
   }
 
   onSubmit(formValue) {

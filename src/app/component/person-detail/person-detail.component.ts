@@ -29,8 +29,10 @@ export class PersonDetailComponent implements OnInit {
   }
 
   onClickDelete() {
-    this.personService.deletePerson(this.person);
-    this.router.navigate(['/']);
+    if(confirm('Are you sure you want to delete this person?')) {
+      this.personService.deletePerson(this.person);
+      this.router.navigate(['/']);   
+    }
   }
 
   updatePerson() {

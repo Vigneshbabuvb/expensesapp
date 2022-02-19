@@ -6,3 +6,9 @@ export interface Person {
   phone?: string,
   balance: number
 }
+
+export interface Settings {
+  allowRegistration?: boolean,
+  disableBalanceOnAdd?: boolean,
+  disableBalanceOnEdit?: boolean
+}

@@ -31,8 +31,10 @@
             <div class="clearfix">
               <form *ngIf="showBalanceEditForm" (submit)="updatePerson()">
                 <div class="input-group">
-                  <input type="number" name="balance" [(ngModel)]="person.balance">
-                  <input type="submit" value="Update">
+                  <input class="form-control" type="number" name="balance" [(ngModel)]="person.balance">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Update</button>
+                  </div>
                 </div>
               </form>
             </div>

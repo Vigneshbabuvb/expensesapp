@@ -1,7 +1,7 @@
 <div class="row" *ngIf="loaded">
   <div class="col-12">
     <div class="mb-2">
-      <a routerLink="/person/{{person.id}}" class="btn btn-link text-primary"><i class="fa fa-arrow-circle-o-left"></i> Back to dashboard</a>
+      <a routerLink="/person/{{person.id}}" class="btn btn-link text-primary"><i class="fa fa-arrow-circle-o-left"></i> Back to Person Detail</a>
     </div>
 
     <div class="card">
@@ -100,7 +100,7 @@
               #personBalance="ngModel"
               [class.is-invalid]="personBalance.touched && personBalance.invalid"
               [(ngModel)]="person.balance"
-              [disabled]="disableBalanceOnAdd"
+              [disabled]="disableBalanceOnEdit"
             >
           </div>
 

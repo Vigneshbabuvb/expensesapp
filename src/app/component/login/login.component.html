@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="text-center pb-4 pt-3">
+          <span class="text-primary"><i class="fa fa-lock mr-2"></i>Expense Tracker</span> Login
+        </h2>
+        <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+            class="form-control"
+            type="text" 
+            [class.is-invalid]="loginEmail.errors && loginEmail.touched" 
+            name="email" 
+            #loginEmail="ngModel"
+            [(ngModel)]="email"
+            required
+            >
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+            class="form-control"
+            [class.is-invalid]="loginPassword.errors && loginPassword.touched" 
+            name="password"
+            #loginPassword="ngModel"
+            [(ngModel)]="password"
+            required
+            >
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" value="Login">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

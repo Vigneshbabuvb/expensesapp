@@ -1,0 +1,23 @@
+<div class="row mb-4">
+  <div class="col-6">
+    <h2>Persons <i class="fa fa-users"></i></h2>
+  </div>
+  <div class="col-6 d-flex align-items-center">
+    <h5>Total Owed: {{totalOwed | currency:"INR":"symbol"}}</h5>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Balance</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{person.firstName}} {{person.lastName}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.balance | currency:"INR":"symbol"}}</td>
+      <td><button routerLink="person/{{person.id}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-circle-o-right"></i> Details</button></td>
+    </tr>
+  </tbody>
+</table>
